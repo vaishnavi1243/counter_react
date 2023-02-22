@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import {useState} from 'react'
+//import ReactDOM from 'react-dom/client';
+//import addName from './addName'
 function App() {
+  let [name,setName]=useState('')
+  const [Item,setItem]=useState([])
+  const addTask=()=>{
+    setItem((oldData)=>{
+      return [...oldData,name]
+    });
+    setName("");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h1>Todo App</h1>
+    <label>Name : </label>
+<input className='search' placeholder="search for" onChange={(e)=>setName(e.target.value)}></input>
+<button onClick={addTask} >submit</button>
+<ol>
+   {Item.map((itemName)=>
+   {
+    return <li>{itemName}</li>
+   })}
+</ol> 
+ 
     </div>
   );
 }
