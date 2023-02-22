@@ -10,6 +10,8 @@ export default function App() {
   return (
     <>
       <center>
+        <h1>Counter App</h1>
+        <h1>updated</h1>
         <div style={style}>{count}</div>
         <button onClick={() => setCount(count + 1)}>+</button>
         <button onClick={() => setCount((count = 0))}>reset</button>
